@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>WilderMinds.AzureImageService</RootNamespace>
+    <Version>0.0.1</Version>
+    <Authors>Shawn Wildermuth</Authors>
+    <Company>Wilder Minds, LLC</Company>
+    <Copyright>Copyright Wilder Minds, LLC</Copyright>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/wilder-minds/AzureImageService</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Azure, Storage, Blogs, C#</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

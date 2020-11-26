@@ -1,23 +1,23 @@
 using System;
 using System.Text;
 using Microsoft.Extensions.Logging.Abstractions;
-using WilderMinds.AzureImageService;
+using WilderMinds.AzureImageStorageService;
 using Xunit;
 
 namespace AzureImageService.Tests
 {
-  public class ImageStorageServiceTests
+  public class AzureImageStorageServiceTests
   {
-    private IImageStorageService _imageStorageService;
+    private IAzureImageStorageService _imageStorageService;
 
-    public ImageStorageServiceTests()
+    public AzureImageStorageServiceTests()
     {
       var testKey = Encoding.UTF8.GetBytes("TESTME");
-      var credentials = new ImageStorageCredentials("foo", 
+      var credentials = new AzureImageStorageCredentials("foo", 
         Convert.ToBase64String(testKey), 
         "https://azurestorage");
-      var client = new ImageStorageServiceClient(credentials);
-      _imageStorageService = new ImageStorageService(new NullLogger<ImageStorageService>(), client);
+      var client = new AzureImageStorageServiceClient(credentials);
+      _imageStorageService = new AzureImageStorageService(new NullLogger<AzureImageStorageService>(), client);
     }
 
     [Fact]

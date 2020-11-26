@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WilderMinds.AzureImageService
+namespace WilderMinds.AzureImageStorageService
 {
   /// <summary>
   /// A class that represents the response from a single image request.

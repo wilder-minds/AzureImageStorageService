@@ -1,11 +1,11 @@
 ﻿using System;
 using Azure.Storage.Blobs;
 
-namespace WilderMinds.AzureImageService
+namespace WilderMinds.AzureImageStorageService
 {
-  public class ImageStorageServiceClient : BlobServiceClient
+  public class AzureImageStorageServiceClient : BlobServiceClient
   {
-    public ImageStorageServiceClient(ImageStorageCredentials credentials)
+    public AzureImageStorageServiceClient(AzureImageStorageCredentials credentials)
     {
       Client = new BlobServiceClient(new Uri(credentials.AccountUrl), credentials);
     }

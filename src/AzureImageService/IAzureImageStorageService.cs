@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace WilderMinds.AzureImageService
+namespace WilderMinds.AzureImageStorageService
 {
   /// <summary>
   /// Interface that represents the Image Storage Service's public API
   /// </summary>
-  public interface IImageStorageService
+  public interface IAzureImageStorageService
   {
     /// <summary>
     /// Stores the image.

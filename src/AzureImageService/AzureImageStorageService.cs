@@ -5,22 +5,22 @@ using Azure.Storage;
 using Azure.Storage.Blobs;
 using Microsoft.Extensions.Logging;
 
-namespace WilderMinds.AzureImageService
+namespace WilderMinds.AzureImageStorageService
 {
   /// <summary>
   /// A service for storing and updating images in the Azure Storage Blog service.
   /// </summary>
   /// <seealso cref="WilderMinds.AzureImageService.IImageStorageService" />
-  public class ImageStorageService : IImageStorageService
+  public class AzureImageStorageService : IAzureImageStorageService
   {
-    private readonly ILogger<ImageStorageService> _logger;
-    private readonly ImageStorageServiceClient _client;
+    private readonly ILogger<AzureImageStorageService> _logger;
+    private readonly AzureImageStorageServiceClient _client;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ImageStorageService"/> class.
     /// </summary>
     /// <param name="logger">The logger.</param>
-    public ImageStorageService(ILogger<ImageStorageService> logger, ImageStorageServiceClient client)
+    public AzureImageStorageService(ILogger<AzureImageStorageService> logger, AzureImageStorageServiceClient client)
     {
       _logger = logger;
       _client = client;

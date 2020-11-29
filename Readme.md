@@ -9,17 +9,17 @@ To install,
 ```
 
 ```
-      // In Configure Services
-      if (_env.IsDevelopment())
-      {
-        // For development you can jsut mock the interface
-        svcs.AddTransient<IAzureImageService, FakeImageService>(); 
-      }
-      else
-      {
-        svcs.AddAzureImageService(_config["BlobStorage:Account"], 
-          _config["BlobStorage:Key"], 
-          _config["BlobStorage:ServiceUrl"]);
-      }
-
+// In Configure Services
+if (_env.IsDevelopment())
+{
+  // For development you can just mock the interface
+  svcs.AddTransient<IAzureImageService, FakeImageService>(); 
+}
+else
+{
+  // Supply your account, API Key, and the url for the blobs
+  svcs.AddAzureImageService(_config["BlobStorage:Account"], 
+    _config["BlobStorage:Key"], 
+    _config["BlobStorage:ServiceUrl"]);
+}
 ```

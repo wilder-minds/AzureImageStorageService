@@ -5,11 +5,10 @@ namespace WilderMinds.AzureImageStorageService
 {
   public class AzureImageStorageServiceClient : BlobServiceClient
   {
-    public AzureImageStorageServiceClient(AzureImageStorageCredentials credentials)
+    public AzureImageStorageServiceClient(AzureImageStorageCredentials credentials) 
+      : base(credentials.AccountUrl, credentials)
     {
-      Client = new BlobServiceClient(new Uri(credentials.AccountUrl), credentials);
     }
 
-    public BlobServiceClient Client { get; protected set; }
   }
 }

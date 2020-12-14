@@ -1,4 +1,5 @@
 ﻿using Azure.Storage;
+using System;
 
 namespace WilderMinds.AzureImageStorageService
 {
@@ -7,10 +8,10 @@ namespace WilderMinds.AzureImageStorageService
     public AzureImageStorageCredentials(string accountName, string accountKey, string url)
       :base(accountName, accountKey)
     {
-      AccountUrl = url;
+      AccountUrl = new Uri(url);
     }
 
-    public string AccountUrl { get; private set; }
+    public Uri AccountUrl { get; private set; }
 
   }
 }

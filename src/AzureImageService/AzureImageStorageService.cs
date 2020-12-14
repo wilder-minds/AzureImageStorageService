@@ -20,11 +20,12 @@ namespace WilderMinds.AzureImageStorageService
     /// Initializes a new instance of the <see cref="ImageStorageService"/> class.
     /// </summary>
     /// <param name="logger">The logger.</param>
-    public AzureImageStorageService(ILogger<AzureImageStorageService> logger, AzureImageStorageServiceClient client)
-    {
-      _logger = logger;
-      _client = client;
-    }
+      public AzureImageStorageService(ILogger<AzureImageStorageService> logger, 
+        AzureImageStorageServiceClient client)
+      {
+        _logger = logger;
+        _client = client;
+      }
 
     /// <summary>
     /// Stores the image in Azure Storage Blog Service.
@@ -40,9 +41,8 @@ namespace WilderMinds.AzureImageStorageService
       try
       {
         var imageName = Path.GetFileName(storeImagePath);
-        var imagePath = Path.GetFullPath(storeImagePath);
 
-        var container = _client.GetBlobContainerClient(imagePath);
+        var container = _client.GetBlobContainerClient("img");
 
         // Get old Image to update
         var blob = container.GetBlobClient(imageName);
@@ -76,6 +76,10 @@ namespace WilderMinds.AzureImageStorageService
         response.Success = false;
         response.Exception = ex;
       }
+      finally
+      {
+        if (imageStream != null) imageStream.Dispose();
+      }
 
       return response;
     }
@@ -88,10 +92,8 @@ namespace WilderMinds.AzureImageStorageService
     /// <returns></returns>
     public Task<ImageResponse> StoreImage(string storeImagePath, byte[] imageData)
     {
-      using (var stream = new MemoryStream(imageData))
-      {
-        return StoreImage(storeImagePath, stream);
-      }
+      var stream = new MemoryStream(imageData);
+      return StoreImage(storeImagePath, stream);
     }
 
   }

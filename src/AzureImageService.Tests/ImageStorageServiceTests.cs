@@ -23,14 +23,14 @@ namespace AzureImageService.Tests
     [Fact]
     public async void ShouldFailIfEmptyRequest()
     {
-      var response = await _imageStorageService.StoreImage("", new byte[] { });
+      var response = await _imageStorageService.StoreImage("", "", new byte[] { });
       Assert.False(response.Success);
     }
 
     [Fact]
     public async void ShouldFailIfBadConfiguration()
     {
-      var response = await _imageStorageService.StoreImage("file.jpg", new byte[] { 05, 05, 05 });
+      var response = await _imageStorageService.StoreImage("img", "file.jpg", new byte[] { 05, 05, 05 });
       Assert.False(response.Success);
     }
   }

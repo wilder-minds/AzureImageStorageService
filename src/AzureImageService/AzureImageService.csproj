@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>WilderMinds.AzureImageStorageService</RootNamespace>
-    <Version>0.4.0</Version>
+    <Version>0.4.1</Version>
     <Authors>Shawn Wildermuth</Authors>
     <Company>Wilder Minds, LLC</Company>
     <Copyright>Copyright Wilder Minds, LLC</Copyright>

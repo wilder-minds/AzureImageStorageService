@@ -33,19 +33,17 @@ namespace WilderMinds.AzureImageStorageService
     /// <param name="storeImagePath">The store image path.</param>
     /// <param name="imageStream">The image stream.</param>
     /// <returns></returns>
-    public async Task<ImageResponse> StoreImage(string storeImagePath, Stream imageStream)
+    public async Task<ImageResponse> StoreImage(string containerName, string storeImagePath, Stream imageStream)
     {
 
       var response = new ImageResponse();
 
       try
       {
-        var imageName = Path.GetFileName(storeImagePath);
-
-        var container = _client.GetBlobContainerClient("img");
+        var container = _client.GetBlobContainerClient(containerName);
 
         // Get old Image to update
-        var blob = container.GetBlobClient(imageName);
+        var blob = container.GetBlobClient(storeImagePath);
         bool shouldUpload = true;
         if (await blob.ExistsAsync())
         {
@@ -65,10 +63,11 @@ namespace WilderMinds.AzureImageStorageService
           {
             response.ImageChanged = true;
             response.Success = true;
-            response.ImageUrl = blob.Uri.AbsoluteUri;
           }
         }
 
+        // Update the Image Url in every case
+        response.ImageUrl = new Uri(container.Uri, string.Concat(containerName, "/", blob.Name)).ToString();
       }
       catch (Exception ex)
       {
@@ -90,10 +89,10 @@ namespace WilderMinds.AzureImageStorageService
     /// <param name="storeImagePath">The store image path.</param>
     /// <param name="imageData">The image data.</param>
     /// <returns></returns>
-    public Task<ImageResponse> StoreImage(string storeImagePath, byte[] imageData)
+    public Task<ImageResponse> StoreImage(string containerName, string storeImagePath, byte[] imageData)
     {
       var stream = new MemoryStream(imageData);
-      return StoreImage(storeImagePath, stream);
+      return StoreImage(containerName, storeImagePath, stream);
     }
 
   }

@@ -14,7 +14,7 @@ namespace WilderMinds.AzureImageStorageService
     /// <param name="storageImagePath">The storage image path.</param>
     /// <param name="imageStream">The image stream.</param>
     /// <returns></returns>
-    Task<ImageResponse> StoreImage(string storageImagePath, Stream imageStream);
+    Task<ImageResponse> StoreImage(string containerName, string storageImagePath, Stream imageStream);
 
     /// <summary>
     /// Stores the image.
@@ -22,6 +22,6 @@ namespace WilderMinds.AzureImageStorageService
     /// <param name="storeImagePath">The store image path.</param>
     /// <param name="imageData">The image data.</param>
     /// <returns></returns>
-    Task<ImageResponse> StoreImage(string storeImagePath, byte[] imageData);
+    Task<ImageResponse> StoreImage(string containerName, string storeImagePath, byte[] imageData);
   }
 }

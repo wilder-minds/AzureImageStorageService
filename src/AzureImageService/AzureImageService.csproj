@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>WilderMinds.AzureImageStorageService</RootNamespace>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <Authors>Shawn Wildermuth</Authors>
     <Company>Wilder Minds, LLC</Company>
     <Copyright>Copyright Wilder Minds, LLC</Copyright>
@@ -15,7 +15,7 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageId>WilderMinds.AzureImageStorageService</PackageId>
     <PackageProjectUrl>https://github.com/wilder-minds/AzureImageService</PackageProjectUrl>
-    <PackageReleaseNotes>Update documentation, no functional changes.</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to 6.0 packages and remove security issue.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

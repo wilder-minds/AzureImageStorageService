@@ -3,7 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>WilderMinds.AzureImageStorageService</RootNamespace>
-    <Version>0.4.2</Version>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
     <Authors>Shawn Wildermuth</Authors>
     <Company>Wilder Minds, LLC</Company>
     <Copyright>Copyright Wilder Minds, LLC</Copyright>
@@ -11,11 +13,13 @@
     <RepositoryUrl>https://github.com/wilder-minds/AzureImageService</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Azure, Storage, Blogs, C#</PackageTags>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageIcon>icon.png</PackageIcon>
     <PackageId>WilderMinds.AzureImageStorageService</PackageId>
     <PackageProjectUrl>https://github.com/wilder-minds/AzureImageService</PackageProjectUrl>
-    <PackageReleaseNotes>Upgrade to 6.0 packages and remove security issue.</PackageReleaseNotes>
+    <PackageReleaseNotes>[Version History](http://github.com/wilder-minds/AzureImageService/blob/main/VersionHistory.md)</PackageReleaseNotes>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <IsPackable>True</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +34,10 @@
       <PackagePath></PackagePath>
     </None>
     <None Include="..\..\license.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\readme.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

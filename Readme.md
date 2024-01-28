@@ -8,7 +8,7 @@ To install,
 > dotnet add package WilderMinds.AzureImageStorageService
 ```
 
-```
+```cs
 // In Configure Services
 if (_env.IsDevelopment())
 {
@@ -22,4 +22,16 @@ else
     _config["BlobStorage:Key"], 
     _config["BlobStorage:ServiceUrl"]);
 }
+```
+
+Once you have this working, you can simply use the service:
+
+```cs
+var response = 
+  await _imageStorageService.StoreImage(
+    "img", 
+    "file.jpg", 
+    someImageBuffer);
+
+if (response.Success) return Results.Ok();
 ```

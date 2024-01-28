@@ -8,6 +8,7 @@
     <FileVersion>1.0.0.0</FileVersion>
     <Authors>Shawn Wildermuth</Authors>
     <Company>Wilder Minds, LLC</Company>
+    <Title>AzureImageService</Title>
     <Copyright>Copyright Wilder Minds, LLC</Copyright>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <RepositoryUrl>https://github.com/wilder-minds/AzureImageService</RepositoryUrl>
